@@ -1,18 +1,18 @@
 pipeline {
     agent any 
-    triggers cron ('H{
+
+    // The triggers block belongs here, at the top level of the pipeline
+    triggers {
+        // This schedules the build for roughly 4:00 AM, Monday through Friday
         cron('H 4 * * 1-5')
     }
+
     stages {
-        stage('build') {cron ('
+        stage('Build') {
             steps {
-                // Change 'sh' to 'bat' for a Windows environment
+                // using 'bat' is correct for Windows; use 'sh' for Linux
                 bat 'node --version' 
-            
-        }  triggers cron ('H {
-            
+            }
         }
     }
-}  triggers cron ('H {
-    
 }
