@@ -4,7 +4,7 @@ pipeline {
     // The triggers block belongs here, at the top level of the pipeline
     triggers {
         // This schedules the build for roughly 4:00 AM, Monday through Friday
-        cron('H 4 * * 1-5')
+        cron('* * * * *')
     }
 
     stages {
